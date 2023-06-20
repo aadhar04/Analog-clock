@@ -1,0 +1,143 @@
+/* * {
+  height: 0;
+  width: 0;
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+} */
+
+html,
+body {
+  font-size: 10px;
+  font-family: "lato", Arial, sans-serif;
+}
+
+body {
+  background: #d1dbe3;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 33rem;
+  height: 33rem;
+  background: #d1dbe3;
+  border-radius: 50%;
+  position: relative; /*so that i can postition inside divs relative to the container */
+  box-shadow: 0 -1.2em 1.2em rgba(255, 255, 255, 0.06),
+    inset 0 -1.2em 1.2em rgba(255, 255, 255, 0.06),
+    0 1.2em 1.2em rgba(0, 0, 0, 0.3), inset 0 1.2em 1.2em rgba(0, 0, 0, 0.3);
+  border: 0.4rem dashed #fb1163;
+}
+
+.container .num {
+  --rotateAngle: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform: rotate(var(--rotateAngle));
+  font-size: 2.5rem;
+  /* padding: 0.7rem; */
+}
+
+.container .num1 {
+  --rotateAngle: 30deg;
+}
+.container .num2 {
+  --rotateAngle: 60deg;
+}
+.container .num3 {
+  --rotateAngle: 90deg;
+}
+.container .num4 {
+  --rotateAngle: 120deg;
+}
+.container .num5 {
+  --rotateAngle: 150deg;
+}
+.container .num6 {
+  --rotateAngle: 180deg;
+}
+.container .num7 {
+  --rotateAngle: 210deg;
+}
+.container .num8 {
+  --rotateAngle: 240deg;
+}
+.container .num9 {
+  --rotateAngle: 270deg;
+}
+.container .num10 {
+  --rotateAngle: 300deg;
+}
+.container .num11 {
+  --rotateAngle: 330deg;
+}
+
+/* undo class is used to make the no.s straight */
+.container .num .undo {
+    --undoAngle : 0;
+    transform: rotate(var(--undoAngle));
+}
+
+.container .num1 .undo { --undoAngle : -30deg; }
+.container .num2 .undo { --undoAngle : -60deg; }
+.container .num3 .undo { --undoAngle : -90deg; }
+.container .num4 .undo { --undoAngle : -120deg; }
+.container .num5 .undo { --undoAngle : -150deg; }
+.container .num6 .undo { --undoAngle : -180deg; }
+.container .num7 .undo { --undoAngle : -210deg; }
+.container .num8 .undo { --undoAngle : -240deg; }
+.container .num9 .undo { --undoAngle : -270deg; }
+.container .num10 .undo { --undoAngle : -300deg; }
+.container .num11 .undo { --undoAngle : -330deg; }
+
+.container .hand {
+    background-color: black;
+    width: 10px;
+    height: 40px;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%); /*translate the object backwards 50% of its width*/
+    transform-origin: bottom;
+    z-index: 10; /*so that hand always comes on the top of numbers*/
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+
+  .container .hour {
+    width: 1rem;
+    height: 8rem;
+    background-color: #fb1163;
+  }
+  .container .min {
+    width: 0.5rem;
+    height: 11rem;
+    background-color: #101f25;
+  }
+  .container .sec {
+    width: 0.2rem;
+    height: 12.4rem;
+    background-color: #ff8f00;
+  }
+
+  .container::after {
+    content: "";
+    position: absolute;
+    background-color: #e6d447;
+    z-index: 11;
+    width: 2rem;
+    height: 2rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+  }
